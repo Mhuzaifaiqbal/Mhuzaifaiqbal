@@ -1,0 +1,119 @@
+<svg width="1500" height="500" viewBox="0 0 1500 500" xmlns="http://www.w3.org/2000/svg" font-family="'SF Pro Display','SF Pro Text',-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <!-- Background: deep navy drifting into midnight blue -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0"    stop-color="#0B1120"/>
+      <stop offset="0.5"  stop-color="#0F1830"/>
+      <stop offset="1"    stop-color="#16233B"/>
+    </linearGradient>
+
+    <!-- Soft radial lighting behind the wordmark -->
+    <radialGradient id="glow" cx="50%" cy="46%" r="46%">
+      <stop offset="0"    stop-color="#2C4066" stop-opacity="0.55"/>
+      <stop offset="42%"  stop-color="#1B2A48" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#0B1120" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Edge vignette for depth (not a 3D effect, just focus) -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="58%"  stop-color="#05080F" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#05080F" stop-opacity="0.40"/>
+    </radialGradient>
+
+    <!-- Refined off-white vertical gradient for the name -->
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#FFFFFF"/>
+      <stop offset="1"   stop-color="#D7DEEC"/>
+    </linearGradient>
+
+    <!-- Very subtle soft-noise texture -->
+    <filter id="noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.055"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Faded stroke for the corner geometry -->
+    <linearGradient id="edgeFade" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0"   stop-color="#3A4E72" stop-opacity="0.7"/>
+      <stop offset="1"   stop-color="#3A4E72" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base gradient -->
+  <rect width="1500" height="500" fill="url(#bg)"/>
+
+  <!-- Radial lighting -->
+  <rect width="1500" height="500" fill="url(#glow)"/>
+
+  <!-- Constellation node network (faint, weighted to the right, drifting off the edges) -->
+  <g stroke="#6E86AE" stroke-width="1" opacity="0.17">
+    <line x1="1132" y1="96"  x2="1258" y2="152"/>
+    <line x1="1258" y1="152" x2="1210" y2="244"/>
+    <line x1="1258" y1="152" x2="1372" y2="118"/>
+    <line x1="1372" y1="118" x2="1418" y2="212"/>
+    <line x1="1210" y1="244" x2="1418" y2="212"/>
+    <line x1="1210" y1="244" x2="1300" y2="330"/>
+    <line x1="1300" y1="330" x2="1418" y2="212"/>
+    <line x1="1132" y1="96"  x2="1210" y2="244"/>
+    <line x1="1300" y1="330" x2="1176" y2="392"/>
+    <line x1="1176" y1="392" x2="1210" y2="244"/>
+    <line x1="1258" y1="152" x2="1300" y2="330"/>
+  </g>
+  <g fill="#9FB4D6" opacity="0.22">
+    <circle cx="1132" cy="96"  r="2.6"/>
+    <circle cx="1258" cy="152" r="3.2"/>
+    <circle cx="1372" cy="118" r="2.4"/>
+    <circle cx="1418" cy="212" r="2.8"/>
+    <circle cx="1210" cy="244" r="3.4"/>
+    <circle cx="1300" cy="330" r="2.6"/>
+    <circle cx="1176" cy="392" r="2.2"/>
+  </g>
+
+  <!-- Scattered stray nodes to loosen the field -->
+  <g fill="#8AA0C6" opacity="0.14">
+    <circle cx="946"  cy="88"  r="1.8"/>
+    <circle cx="1064" cy="150" r="1.6"/>
+    <circle cx="1360" cy="404" r="1.8"/>
+    <circle cx="1230" cy="60"  r="1.6"/>
+    <circle cx="360"  cy="132" r="1.6"/>
+    <circle cx="452"  cy="404" r="1.6"/>
+  </g>
+
+  <!-- Thin abstract geometry, bottom-left corner only -->
+  <g fill="none" stroke="url(#edgeFade)" stroke-width="1">
+    <line x1="-20" y1="500" x2="360" y2="352"/>
+    <line x1="-20" y1="448" x2="300" y2="322"/>
+    <line x1="-20" y1="392" x2="236" y2="290"/>
+    <line x1="120" y1="520" x2="420" y2="300"/>
+    <path d="M -20 300 Q 180 300 300 500"/>
+  </g>
+  <g fill="#4E6690" opacity="0.5">
+    <circle cx="236" cy="290" r="2"/>
+    <circle cx="300" cy="322" r="1.6"/>
+  </g>
+
+  <!-- Noise texture over everything structural -->
+  <rect width="1500" height="500" filter="url(#noise)"/>
+
+  <!-- Vignette -->
+  <rect width="1500" height="500" fill="url(#vignette)"/>
+
+  <!-- Typography -->
+  <g text-anchor="middle" text-rendering="geometricPrecision">
+    <text x="750" y="238" fill="url(#ink)" font-size="76" font-weight="700"
+          letter-spacing="-1.2">Muhammad Huzaifa Iqbal</text>
+
+    <!-- Quiet divider -->
+    <line x1="726" y1="270" x2="774" y2="270" stroke="#8698B8" stroke-width="1" opacity="0.30"/>
+
+    <text x="750" y="304" fill="#93A2BC" font-size="25" font-weight="500"
+          letter-spacing="3.5">Computer Science Student</text>
+
+    <text x="750" y="344" font-size="17" font-weight="500" letter-spacing="3.2">
+      <tspan fill="#7B8AA6">AI</tspan><tspan fill="#4E6690">  •  </tspan><tspan fill="#7B8AA6">Cybersecurity</tspan><tspan fill="#4E6690">  •  </tspan><tspan fill="#7B8AA6">Full Stack Development</tspan>
+    </text>
+  </g>
+</svg>
