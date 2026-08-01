@@ -1,119 +1,104 @@
-<svg width="1500" height="500" viewBox="0 0 1500 500" xmlns="http://www.w3.org/2000/svg" font-family="'SF Pro Display','SF Pro Text',-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif">
+<svg width="1500" height="500" viewBox="0 0 1500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="'SF Pro Display','SF Pro Text',-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif">
   <defs>
-    <!-- Background: deep navy drifting into midnight blue -->
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0"    stop-color="#0B1120"/>
-      <stop offset="0.5"  stop-color="#0F1830"/>
-      <stop offset="1"    stop-color="#16233B"/>
+      <stop offset="0"   stop-color="#060A12"/>
+      <stop offset="0.55" stop-color="#0A1220"/>
+      <stop offset="1"   stop-color="#0C1728"/>
     </linearGradient>
-
-    <!-- Soft radial lighting behind the wordmark -->
-    <radialGradient id="glow" cx="50%" cy="46%" r="46%">
-      <stop offset="0"    stop-color="#2C4066" stop-opacity="0.55"/>
-      <stop offset="42%"  stop-color="#1B2A48" stop-opacity="0.28"/>
-      <stop offset="100%" stop-color="#0B1120" stop-opacity="0"/>
+    <radialGradient id="aura" cx="50%" cy="47%" r="48%">
+      <stop offset="0"   stop-color="#3E92E6" stop-opacity="0.50"/>
+      <stop offset="34%" stop-color="#1E5BA6" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#060A12" stop-opacity="0"/>
     </radialGradient>
-
-    <!-- Edge vignette for depth (not a 3D effect, just focus) -->
-    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
-      <stop offset="58%"  stop-color="#05080F" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#05080F" stop-opacity="0.40"/>
+    <radialGradient id="core" cx="50%" cy="46%" r="24%">
+      <stop offset="0"   stop-color="#CBE8FF" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#CBE8FF" stop-opacity="0"/>
     </radialGradient>
-
-    <!-- Refined off-white vertical gradient for the name -->
+    <radialGradient id="ember" cx="63%" cy="80%" r="42%">
+      <stop offset="0"   stop-color="#F5893E" stop-opacity="0.11"/>
+      <stop offset="100%" stop-color="#F5893E" stop-opacity="0"/>
+    </radialGradient>
     <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0"   stop-color="#FFFFFF"/>
-      <stop offset="1"   stop-color="#D7DEEC"/>
+      <stop offset="0"   stop-color="#F2FAFF"/>
+      <stop offset="1"   stop-color="#BFE1FF"/>
     </linearGradient>
 
-    <!-- Very subtle soft-noise texture -->
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <filter id="textGlow" x="-40%" y="-60%" width="180%" height="220%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
     <filter id="noise" x="0" y="0" width="100%" height="100%">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" result="n"/>
       <feColorMatrix in="n" type="saturate" values="0"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.055"/>
-      </feComponentTransfer>
+      <feComponentTransfer><feFuncA type="linear" slope="0.04"/></feComponentTransfer>
     </filter>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="58%"  stop-color="#04060C" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#04060C" stop-opacity="0.38"/>
+    </radialGradient>
 
-    <!-- Faded stroke for the corner geometry -->
-    <linearGradient id="edgeFade" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0"   stop-color="#3A4E72" stop-opacity="0.7"/>
-      <stop offset="1"   stop-color="#3A4E72" stop-opacity="0"/>
-    </linearGradient>
+    <!-- All glowing tech linework, defined once -->
+    <g id="tech">
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="#29B6FF" stroke-width="1.5" opacity="0.6">
+          <path d="M0,120 H150 L210,180 H360"/>
+          <path d="M0,300 H80 V360 H240"/>
+          <path d="M0,430 H180 L240,390 H366"/>
+          <path d="M0,250 H60 L110,250"/>
+          <path d="M1500,140 H1360 L1300,200 H1150"/>
+          <path d="M1500,330 H1380 L1320,272 H1180"/>
+          <path d="M1500,415 H1320 L1260,360 H1120"/>
+          <path d="M1500,235 H1430 L1400,235"/>
+        </g>
+        <g stroke="#F5893E" stroke-width="1.5" opacity="0.55">
+          <path d="M0,180 H110 L170,240 H320"/>
+          <path d="M1500,300 H1400 V360 H1240"/>
+        </g>
+      </g>
+      <g fill="#29B6FF" opacity="0.85">
+        <rect x="356" y="176" width="8" height="8" rx="1.5"/>
+        <rect x="236" y="356" width="8" height="8" rx="1.5"/>
+        <rect x="362" y="386" width="8" height="8" rx="1.5"/>
+        <rect x="1146" y="196" width="8" height="8" rx="1.5"/>
+        <rect x="1176" y="268" width="8" height="8" rx="1.5"/>
+        <rect x="1116" y="356" width="8" height="8" rx="1.5"/>
+      </g>
+      <g fill="none" stroke="#6FD6FF" stroke-width="1.4" opacity="0.8">
+        <circle cx="110" cy="250" r="4"/>
+        <circle cx="1400" cy="235" r="4"/>
+      </g>
+      <g fill="#F5893E" opacity="0.8">
+        <rect x="316" y="236" width="8" height="8" rx="1.5"/>
+        <rect x="1236" y="356" width="8" height="8" rx="1.5"/>
+      </g>
+      <g>
+        <circle cx="470" cy="150" r="2.4" fill="#EAF6FF" opacity="0.9"/>
+        <circle cx="1050" cy="360" r="2.2" fill="#9FD8FF" opacity="0.85"/>
+        <circle cx="980" cy="120" r="1.8" fill="#EAF6FF" opacity="0.8"/>
+        <circle cx="420" cy="380" r="1.8" fill="#9FD8FF" opacity="0.8"/>
+      </g>
+    </g>
   </defs>
 
-  <!-- Base gradient -->
   <rect width="1500" height="500" fill="url(#bg)"/>
+  <rect width="1500" height="500" fill="url(#ember)"/>
+  <rect width="1500" height="500" fill="url(#aura)"/>
+  <rect width="1500" height="500" fill="url(#core)"/>
 
-  <!-- Radial lighting -->
-  <rect width="1500" height="500" fill="url(#glow)"/>
+  <!-- glow underlay + crisp overlay -->
+  <use xlink:href="#tech" filter="url(#soft)" opacity="0.9"/>
+  <use xlink:href="#tech"/>
 
-  <!-- Constellation node network (faint, weighted to the right, drifting off the edges) -->
-  <g stroke="#6E86AE" stroke-width="1" opacity="0.17">
-    <line x1="1132" y1="96"  x2="1258" y2="152"/>
-    <line x1="1258" y1="152" x2="1210" y2="244"/>
-    <line x1="1258" y1="152" x2="1372" y2="118"/>
-    <line x1="1372" y1="118" x2="1418" y2="212"/>
-    <line x1="1210" y1="244" x2="1418" y2="212"/>
-    <line x1="1210" y1="244" x2="1300" y2="330"/>
-    <line x1="1300" y1="330" x2="1418" y2="212"/>
-    <line x1="1132" y1="96"  x2="1210" y2="244"/>
-    <line x1="1300" y1="330" x2="1176" y2="392"/>
-    <line x1="1176" y1="392" x2="1210" y2="244"/>
-    <line x1="1258" y1="152" x2="1300" y2="330"/>
-  </g>
-  <g fill="#9FB4D6" opacity="0.22">
-    <circle cx="1132" cy="96"  r="2.6"/>
-    <circle cx="1258" cy="152" r="3.2"/>
-    <circle cx="1372" cy="118" r="2.4"/>
-    <circle cx="1418" cy="212" r="2.8"/>
-    <circle cx="1210" cy="244" r="3.4"/>
-    <circle cx="1300" cy="330" r="2.6"/>
-    <circle cx="1176" cy="392" r="2.2"/>
-  </g>
-
-  <!-- Scattered stray nodes to loosen the field -->
-  <g fill="#8AA0C6" opacity="0.14">
-    <circle cx="946"  cy="88"  r="1.8"/>
-    <circle cx="1064" cy="150" r="1.6"/>
-    <circle cx="1360" cy="404" r="1.8"/>
-    <circle cx="1230" cy="60"  r="1.6"/>
-    <circle cx="360"  cy="132" r="1.6"/>
-    <circle cx="452"  cy="404" r="1.6"/>
-  </g>
-
-  <!-- Thin abstract geometry, bottom-left corner only -->
-  <g fill="none" stroke="url(#edgeFade)" stroke-width="1">
-    <line x1="-20" y1="500" x2="360" y2="352"/>
-    <line x1="-20" y1="448" x2="300" y2="322"/>
-    <line x1="-20" y1="392" x2="236" y2="290"/>
-    <line x1="120" y1="520" x2="420" y2="300"/>
-    <path d="M -20 300 Q 180 300 300 500"/>
-  </g>
-  <g fill="#4E6690" opacity="0.5">
-    <circle cx="236" cy="290" r="2"/>
-    <circle cx="300" cy="322" r="1.6"/>
-  </g>
-
-  <!-- Noise texture over everything structural -->
   <rect width="1500" height="500" filter="url(#noise)"/>
-
-  <!-- Vignette -->
   <rect width="1500" height="500" fill="url(#vignette)"/>
 
-  <!-- Typography -->
   <g text-anchor="middle" text-rendering="geometricPrecision">
-    <text x="750" y="238" fill="url(#ink)" font-size="76" font-weight="700"
-          letter-spacing="-1.2">Muhammad Huzaifa Iqbal</text>
-
-    <!-- Quiet divider -->
-    <line x1="726" y1="270" x2="774" y2="270" stroke="#8698B8" stroke-width="1" opacity="0.30"/>
-
-    <text x="750" y="304" fill="#93A2BC" font-size="25" font-weight="500"
-          letter-spacing="3.5">Computer Science Student</text>
-
-    <text x="750" y="344" font-size="17" font-weight="500" letter-spacing="3.2">
-      <tspan fill="#7B8AA6">AI</tspan><tspan fill="#4E6690">  •  </tspan><tspan fill="#7B8AA6">Cybersecurity</tspan><tspan fill="#4E6690">  •  </tspan><tspan fill="#7B8AA6">Full Stack Development</tspan>
-    </text>
+    <text x="750" y="246" fill="#2FA5FF" opacity="0.55" font-size="76" font-weight="700" letter-spacing="-1.2" filter="url(#textGlow)">Muhammad Huzaifa Iqbal</text>
+    <text x="750" y="246" fill="url(#ink)" font-size="76" font-weight="700" letter-spacing="-1.2">Muhammad Huzaifa Iqbal</text>
+    <line x1="722" y1="278" x2="778" y2="278" stroke="#4FC3F7" stroke-width="1.4" opacity="0.6"/>
+    <text x="750" y="312" fill="#9CBBDD" font-size="25" font-weight="500" letter-spacing="3.5">Computer Science Student</text>
+    <text x="750" y="352" font-size="17" font-weight="500" letter-spacing="3.2"><tspan fill="#8AA6C6">AI</tspan><tspan fill="#F5893E">  &#8226;  </tspan><tspan fill="#8AA6C6">Cybersecurity</tspan><tspan fill="#F5893E">  &#8226;  </tspan><tspan fill="#8AA6C6">Full Stack Development</tspan></text>
   </g>
 </svg>
